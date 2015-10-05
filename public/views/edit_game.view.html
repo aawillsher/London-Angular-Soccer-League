@@ -1,0 +1,72 @@
+<div ng-controller = "GameEditCtrl">
+<h3 class = "top">Edit game</h3>
+<form ng-submit="updateGame()" name = "editgameform">
+
+<div class = "row">
+
+    <div class="form-group col-md-4">
+    <label>Year</label>
+    <select class = "form-control" ng-model = "game.gameyear">
+        <option ng-repeat = "year in years" value = "{{year}}">{{year}}</option>
+    </select>
+  </div>
+
+    <div class="form-group col-md-4">
+        <label>Month</label>
+        <select class = "form-control" ng-model = "game.gamemonth">
+            <option ng-repeat = "month in months" value = "{{month}}">{{month}}</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-4">
+        <label>Day</label>
+        <select class = "form-control" ng-model = "game.gameday">
+            <option ng-repeat = "day in days" value = "{{day}}">{{day}}</option>
+        </select>
+    </div>
+
+</div>
+
+<div class = "row">
+
+    <div class="form-group col-md-6">
+    <label>Visitor</label>
+    <select class = "form-control" name = "visitor" ng-model = "game.visitor">
+        <option ng-repeat = "team in teams" value = "{{team}}">{{team}}</option>
+    </select>
+  </div>
+
+    <div class = "form-group col-md-6">
+        <label>Score</label>
+        <input required class = "form-control" name = "visitorScore" type = "number" ng-model = "game.visitorScore" min = "0" pattern = "[0-9]" />
+    </div>
+
+</div>
+
+    <div class = "row">
+
+        <div class="form-group col-md-6">
+        <label>Home</label>
+        <select class = "form-control" name = "home" ng-model = "game.home">
+            <option ng-repeat = "team in teams" value = "{{team}}">{{team}}</option>
+        </select>
+    </div>
+
+    <div class = "form-group col-md-6">
+        <label>Score</label>
+        <input required class = "form-control" name = "homeScore" type = "number" ng-model = "game.homeScore" min = "0" pattern = "[0-9]" />
+    </div>
+
+    </div>
+
+    <div class = "form-group">
+        <label>Notes</label>
+        <textarea class = "form-control" name = "notes" type = "text" ng-model = "game.notes"></textarea>
+    </div>
+
+  <input type = "submit" ng-if = "game.home !== game.visitor" class="btn btn-success" />
+  <a class="btn btn-danger" href="/#games">Cancel</a>
+
+    </form>
+
+</div>

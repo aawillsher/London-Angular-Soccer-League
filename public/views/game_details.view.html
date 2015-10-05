@@ -1,0 +1,16 @@
+<div ng-controller="GameDetailsCtrl">
+
+    <br><br>
+    <h3>{{game.gamemonth}} {{game.gameday}}, {{game.gameyear}}</h3>
+    <h3>{{game.visitor}} {{game.visitorScore}} at {{game.home}} {{game.homeScore}}</h3>
+    <p>{{game.notes}}</p>
+    <hr>
+
+    <div class="actions">
+        <a href="#/games/edit/{{game._id}}" class="btn btn-success">Edit</a>
+        <a href="#/games" class = "btn btn-info">Cancel</a>
+        <a href="#" class= "btn btn-danger" ng-click="removeGame()">Delete</a>
+    </div>
+
+    <br><br>
+</div>

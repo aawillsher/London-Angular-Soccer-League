@@ -1,0 +1,79 @@
+<br><br>
+
+<div class="row">
+
+<div class="col-lg-6" ng-controller = "StandingsCtrl">
+
+    <!-- standings table -->
+
+     <h4 class = "top">Standings</h4>
+
+        <table class = "table table-striped">
+            <thead>
+                <tr>
+                    <th><a href ng-click = "orderByField = 'name'; reverseSort = !reverseSort">Team</a></th>
+                    <th><a href ng-click = "orderByField = 'g'; reverseSort = !reverseSort">G</a></th>
+                    <th><a href ng-click = "orderByField = 'w'; reverseSort = !reverseSort">W</a></th>
+                    <th><a href ng-click = "orderByField = 'l'; reverseSort = !reverseSort">L</a></th>
+                    <th><a href ng-click = "orderByField = 't'; reverseSort = !reverseSort">T</a></th>
+                    <th><a href ng-click = "orderByField = 'p'; reverseSort = !reverseSort">P</a></th>
+                    <th><a href ng-click = "orderByField = 'gf'; reverseSort = !reverseSort">GF</a></th>
+                    <th><a href ng-click = "orderByField = 'ga'; reverseSort = !reverseSort">GA</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat = "team in teams |orderBy:orderByField:reverseSort">
+                    <td>{{team.name}}</td>
+                    <td>{{team.g}}</td>
+                    <td>{{team.w}}</td>
+                    <td>{{team.l}}</td>
+                    <td>{{team.t}}</td>
+                    <td>{{team.p}}</td>
+                    <td>{{team.gf}}</td>
+                    <td>{{team.ga}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    <!-- instructions to users -->
+
+    <div class = "sorthint">Click on table headers to sort rows.<br>Click on dates to expand, edit or delete single games.</div>
+    <br>
+
+    <a class = "btn btn-success" href="/#games/add"><i class = "fa fa-plus"></i> Add game</a>
+
+</div>
+
+<!-- games table -->
+
+    <div class = "col-lg-6" ng-controller = "GamesCtrl">
+        <h4 class = "top">Games</h4>
+        <section>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                    <a href ng-click = "orderByField = 'date'; reverseSort = !reverseSort">Date</a>
+                </th>
+                <th>
+                    <a href ng-click = "orderByField = 'visitor'; reverseSort = !reverseSort">Visitor</a>
+                </th>
+                  <th></th>
+                  <th>
+                      <a href ng-click = "orderByField = 'home'; reverseSort = !reverseSort">Home</a>
+                  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="game in games |orderBy:orderByField:reverseSort">
+                <td><a href = "#/games/details/{{game._id}}"</a>{{game.date |date: 'longDate'}}</td>
+                <td>{{game.visitor}}</td>
+                <td>{{game.visitorScore}}</td>
+                <td>{{game.home}}</td>
+                <td>{{game.homeScore}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+    </div>
+</div>

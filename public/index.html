@@ -1,0 +1,41 @@
+<!-- Created by Adrian Willsher in 2015.
+This site is for demonstration purposes only.
+Contact Adrian at aawillsher (at) hotmail (dot) com. -->
+
+<!DOCTYPE html>
+<html lang="en" ng-app="standings3">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Standings</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Oswald|Amiri' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    </head>
+
+  <body>
+
+    <h1 id = "siteheader">London Angular Soccer League</h1>
+
+    <div class="container">
+      <div ng-view></div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/games.controller.js"></script>
+  </body>
+</html>

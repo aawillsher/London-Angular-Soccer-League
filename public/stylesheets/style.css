@@ -1,0 +1,18 @@
+.heading{
+    background:#666;
+    color:#fff;
+    padding: 5px;
+}
+
+#siteheader {
+    font-family: Oswald;
+    font-size: 65px;
+    text-align: center;
+    color: #500000;
+    letter-spacing: -0.8px;
+}
+
+.top {
+    font-family: Oswald;
+    font-size: 25px;
+}

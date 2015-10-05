@@ -1,0 +1,75 @@
+<div ng-controller = "GameCreateCtrl">
+<h3 class = "top">Add Game</h3>
+<form ng-submit="addGame()" name = "addgameform">
+
+    <div class = "row">
+
+        <div class="form-group col-md-4">
+    <label>Year</label>
+    <select class = "form-control" ng-model = "gameyear" type = "number" required>
+        <option selected disabled value = "">Select year</option>
+        <option ng-repeat = "year in years" value = "{{year}}">{{year}}</option>
+    </select>
+  </div>
+
+    <div class="form-group col-md-4">
+        <label>Month</label>
+        <select class = "form-control" ng-model = "gamemonth" type = "text" required>
+            <option selected disabled value = "">Select month</option>
+            <option ng-repeat = "month in months" value = "{{month}}">{{month}}</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-4">
+        <label>Day</label>
+        <select class = "form-control" ng-model = "gameday" type = "number" required>
+            <option selected disabled value = "">Select day</option>
+            <option ng-repeat = "day in days" value = "{{day}}">{{day}}</option>
+        </select>
+    </div>
+
+    </div>
+
+    <div class = "row">
+
+        <div class="form-group col-md-6">
+    <label>Visitor</label>
+    <select class = "form-control" ng-model = "visitor" type = "text" required>
+        <option selected disabled value = "">Select visitor</option>
+        <option ng-repeat = "team in teams" value = "{{team}}">{{team}}</option>
+    </select>
+  </div>
+
+    <div class = "form-group col-md-6">
+        <label>Score</label>
+        <input class = "form-control" type = "number" ng-model = "visitorScore" min = "0" step = '1' required />
+    </div>
+
+    </div>
+
+    <div class = "row">
+
+        <div class="form-group col-md-6">
+    <label>Home</label>
+    <select class = "form-control" ng-model = "home" type = "text" required>
+        <option selected disabled value = "">Select home</option>
+        <option ng-repeat = "team in teams" value = "{{team}}">{{team}}</option>
+    </select>
+    </div>
+
+    <div class = "form-group col-md-6">
+        <label>Score</label>
+        <input class = "form-control" type = "number" ng-model = "homeScore" min = "0" step = '1' required />
+    </div>
+
+    </div>
+
+    <div class = "form-group">
+        <label>Notes</label>
+        <textarea class = "form-control" type = "text" ng-model = "notes"></textarea>
+    </div>
+
+  <input ng-if = "visitor !== home && visitor && home && gameyear && gamemonth && gameday && homeScore && visitorScore" type = "submit" class="btn btn-success" />
+  <a class="btn btn-danger" href="/#games">Cancel</a>
+
+</div>
