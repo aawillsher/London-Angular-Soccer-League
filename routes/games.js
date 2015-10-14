@@ -21,7 +21,6 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
-
 router.post('/', function(req, res, next){
     // Get Form Values
     var gameyear        = req.body.gameyear;

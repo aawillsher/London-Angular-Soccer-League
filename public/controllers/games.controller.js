@@ -9,6 +9,8 @@ angular.module("standings3")
         // convert games data from DB to scope variable
         $scope.games = data;
 
+            console.log(data);
+
         $scope.orderByField = 'date';
         $scope.reverseSort = false;
 
@@ -17,69 +19,119 @@ angular.module("standings3")
             $scope.games[x].date = new Date(data[x].gamemonth + " " + data[x].gameday + ", " + data[x].gameyear);
         }
 
-        var Alligators = {
-            name: "Alligators",
-            w:0, l:0, t:0, gf:0, ga:0, p:0, g:0
-        };
-        var Bobcats = {
-            name: "Bobcats",
-            w:0, l:0, t:0, gf:0, ga:0, p:0, g:0
-        };
-        var Cheetahs = {
-            name: "Cheetahs",
-            w:0, l:0, t:0, gf:0, ga:0, p:0, g:0
-        };
-        var Ducks = {
-            name: "Ducks",
-            w:0, l:0, t:0, gf:0, ga:0, p:0, g:0
-        };
-        var Eagles = {
-            name: "Eagles",
-            w:0, l:0, t:0, gf:0, ga:0, p:0, g:0
-        };
-        var Falcons = {
-            name: "Falcons",
-            w:0, l:0, t:0, gf:0, ga:0, p:0, g:0
-        };
-        var Giraffes = {
-            name: "Giraffes",
-            w:0, l:0, t:0, gf:0, ga:0, p:0, g:0
-        };
-        var Hawks = {
-            name: "Hawks",
-            w:0, l:0, t:0, gf:0, ga:0, p:0, g:0
-        };
+        // create league object for all teams
+        var league = {
+            Alligators: {
+                name: "Alligators",
+                w: 0,
+                l: 0,
+                t: 0,
+                gf: 0,
+                ga: 0,
+                p: 0,
+                g: 0
+            },
+            Bobcats: {
+                name: "Bobcats",
+                w: 0,
+                l: 0,
+                t: 0,
+                gf: 0,
+                ga: 0,
+                p: 0,
+                g: 0
+            },
+            Cheetahs: {
+                name: "Cheetahs",
+                w: 0,
+                l: 0,
+                t: 0,
+                gf: 0,
+                ga: 0,
+                p: 0,
+                g: 0
+            },
+            Ducks: {
+                name: "Ducks",
+                w: 0,
+                l: 0,
+                t: 0,
+                gf: 0,
+                ga: 0,
+                p: 0,
+                g: 0
+            },
+            Eagles: {
+                name: "Eagles",
+                w: 0,
+                l: 0,
+                t: 0,
+                gf: 0,
+                ga: 0,
+                p: 0,
+                g: 0
+            },
+            Falcons: {
+                name: "Falcons",
+                w: 0,
+                l: 0,
+                t: 0,
+                gf: 0,
+                ga: 0,
+                p: 0,
+                g: 0
+            },
+            Giraffes: {
+                name: "Giraffes",
+                w: 0,
+                l: 0,
+                t: 0,
+                gf: 0,
+                ga: 0,
+                p: 0,
+                g: 0
+            },
+            Hawks: {
+                name: "Hawks",
+                w: 0,
+                l: 0,
+                t: 0,
+                gf: 0,
+                ga: 0,
+                p: 0,
+                g: 0
+            }
+        }
 
         // calculate standings from games data;
         for (var x = 0; x < data.length; x++) {
 
-            eval(data[x].home).gf += data[x].homeScore;
-            eval(data[x].visitor).gf += data[x].visitorScore;
-            eval(data[x].home).ga += data[x].visitorScore;
-            eval(data[x].visitor).ga += data[x].homeScore;
-            eval(data[x].home).g ++;
-            eval(data[x].visitor).g ++;
+            league[data[x].home].gf += data[x].homeScore;
+            league[data[x].visitor].gf += data[x].visitorScore;
+            league[data[x].home].ga += data[x].visitorScore;
+            league[data[x].visitor].ga += data[x].homeScore;
+            league[data[x].home].g ++;
+            league[data[x].visitor].g ++;
 
             if (data[x].homeScore > data[x].visitorScore) {
-                eval(data[x].home).w ++;
-                eval(data[x].visitor).l ++;
-                eval(data[x].home).p += 2;
+                league[data[x].home].w ++;
+                league[data[x].visitor].l ++;
+                league[data[x].home].p += 2;
             }
             else if (data[x].homeScore < data[x].visitorScore) {
-                eval(data[x].home).l ++;
-                eval(data[x].visitor).w ++;
-                eval(data[x].visitor).p += 2;
+                league[data[x].visitor].w ++;
+                league[data[x].home].l ++;
+                league[data[x].visitor].p += 2;
             }
             else if (data[x].homeScore == data[x].visitorScore) {
-                eval(data[x].home).t ++;
-                eval(data[x].visitor).t ++;
-                eval(data[x].home).p ++;
-                eval(data[x].visitor).p ++;
+                league[data[x].home].t ++;
+                league[data[x].visitor].t ++;
+                league[data[x].home].p ++;
+                league[data[x].visitor].p ++;
                 }
             }
 
-        // convert team objects to array of objects
-        $scope.teams = [Alligators, Bobcats, Cheetahs, Ducks, Eagles, Falcons, Giraffes, Hawks];
+            $scope.stand = league;
 
         };
 

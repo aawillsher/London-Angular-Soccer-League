@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat = "team in teams |orderBy:orderByField:reverseSort">
+                <tr ng-repeat = "team in stand |orderBy:orderByField:reverseSort">
                     <td>{{team.name}}</td>
                     <td>{{team.g}}</td>
                     <td>{{team.w}}</td>
@@ -40,7 +40,7 @@
     <div class = "sorthint">Click on table headers to sort rows.<br>Click on dates to expand, edit or delete single games.</div>
     <br>
 
-    <a class = "btn btn-success" href="/#games/add"><i class = "fa fa-plus"></i> Add game</a>
+    <a class = "btn btn-success" href="/#games/add">Add game</a>
 
 </div>
 
