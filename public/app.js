@@ -23,6 +23,11 @@ app.config(['$routeProvider', function($routeProvider){
             controller: 'GameEditCtrl'
         }).
 
+        when('/games/teams/:id', {
+            templateUrl: 'views/team_games.view.html',
+            controller: 'TeamGamesCtrl'
+        }).
+
         otherwise({redirectTo: '/games'})
 }]);
 

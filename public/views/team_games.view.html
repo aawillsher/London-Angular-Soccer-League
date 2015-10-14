@@ -1,0 +1,32 @@
+<div class = "col-md-6 col-md-offset-3" ng-controller = "TeamGamesCtrl">
+        <br><h4 class = "top">{{team}}</h4>
+        <section>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>
+                    <a href ng-click = "orderByField = 'date'; reverseSort = !reverseSort">Date</a>
+                </th>
+                <th>
+                    <a href ng-click = "orderByField = 'visitor'; reverseSort = !reverseSort">Visitor</a>
+                </th>
+                  <th></th>
+                  <th>
+                      <a href ng-click = "orderByField = 'home'; reverseSort = !reverseSort">Home</a>
+                  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="game in teamGames |orderBy:orderByField:reverseSort">
+                <td><a href = "#/games/details/{{game._id}}"</a>{{game.date |date: 'longDate'}}</td>
+                <td>{{game.visitor}}</td>
+                <td>{{game.visitorScore}}</td>
+                <td>{{game.home}}</td>
+                <td>{{game.homeScore}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+    <a href="#/games" class = "btn btn-success">Go back to main view</a>
+
+    </div>

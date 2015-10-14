@@ -11,19 +11,35 @@
         <table class = "table table-striped">
             <thead>
                 <tr>
-                    <th><a href ng-click = "orderByField = 'name'; reverseSort = !reverseSort">Team</a></th>
-                    <th><a href ng-click = "orderByField = 'g'; reverseSort = !reverseSort">G</a></th>
-                    <th><a href ng-click = "orderByField = 'w'; reverseSort = !reverseSort">W</a></th>
-                    <th><a href ng-click = "orderByField = 'l'; reverseSort = !reverseSort">L</a></th>
-                    <th><a href ng-click = "orderByField = 't'; reverseSort = !reverseSort">T</a></th>
-                    <th><a href ng-click = "orderByField = 'p'; reverseSort = !reverseSort">P</a></th>
-                    <th><a href ng-click = "orderByField = 'gf'; reverseSort = !reverseSort">GF</a></th>
-                    <th><a href ng-click = "orderByField = 'ga'; reverseSort = !reverseSort">GA</a></th>
+                    <th>
+                        <a href ng-click = "orderByField = 'name';reverseSort = !reverseSort">Team</a>
+                    </th>
+                    <th>
+                        <a href ng-click = "orderByField = 'g';reverseSort = !reverseSort">G</a>
+                    </th>
+                    <th>
+                        <a href ng-click = "orderByField = 'w';reverseSort = !reverseSort">W</a>
+                    </th>
+                    <th>
+                        <a href ng-click = "orderByField = 'l';reverseSort = !reverseSort">L</a>
+                    </th>
+                    <th>
+                        <a href ng-click = "orderByField = 't';reverseSort = !reverseSort">T</a>
+                    </th>
+                    <th>
+                        <a href ng-click = "orderByField = 'p';reverseSort = !reverseSort">P</a>
+                    </th>
+                    <th>
+                        <a href ng-click = "orderByField = 'gf';reverseSort = !reverseSort">GF</a>
+                    </th>
+                    <th>
+                        <a href ng-click = "orderByField = 'ga';reverseSort = !reverseSort">GA</a>
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat = "team in stand |orderBy:orderByField:reverseSort">
-                    <td>{{team.name}}</td>
+                <tr ng-repeat = "team in league |orderBy:orderByField:reverseSort">
+                    <td><a href = "#/games/teams/{{team.name}}"</a>{{team.name}}</td>
                     <td>{{team.g}}</td>
                     <td>{{team.w}}</td>
                     <td>{{team.l}}</td>
@@ -37,7 +53,7 @@
 
     <!-- instructions to users -->
 
-    <div class = "sorthint">Click on table headers to sort rows.<br>Click on dates to expand, edit or delete single games.</div>
+    <div class = "sorthint">Click on table headers to sort rows.<br>Click on dates to expand, edit or delete single games.<br>Click on team names to show all games for a team.</div>
     <br>
 
     <a class = "btn btn-success" href="/#games/add">Add game</a>
